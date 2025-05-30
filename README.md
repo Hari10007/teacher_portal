@@ -6,7 +6,7 @@
 
 ```bash
 git clone https://github.com/Hari10007/teacher_portal.git
-cd teacher-portal
+cd teacher_portal
 
 ```
 
