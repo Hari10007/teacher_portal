@@ -1,0 +1,75 @@
+{% extends "main.html" %}
+{% load static %}
+{% block title %}Student List{% endblock %}
+
+{% block body %}
+{% include "dashboard/_message_modal.html" %}
+{% include "dashboard/_delete_confirm_modal.html" %}
+
+<div class="container mt-5">
+   <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="text-center mb-0">Student List</h2>
+      <form method="POST" action="{% url 'logout' %}">
+         {% csrf_token %}
+         <button class="btn btn-outline-danger">Logout</button>
+      </form>
+   </div>
+
+
+   <div class="text-right mb-3">
+      <button class="btn btn-dark" data-toggle="modal" data-target="#addStudentModal">Add Student</button>
+   </div>
+
+   <table class="table table-bordered bg-white shadow">
+      <thead class="thead-dark">
+         <tr>
+            <th>Name</th>
+            <th>Subject</th>
+            <th>Marks</th>
+            <th>Actions</th>
+         </tr>
+      </thead>
+      <tbody>
+         {% for student in students %}
+         <tr id="student-{{ student.id }}">
+            <td contenteditable="true">{{ student.name }}</td>
+            <td contenteditable="true">{{ student.subject }}</td>
+            <td contenteditable="true">{{ student.marks }}</td>
+            <td>
+               <div class="dropdown">
+                  <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton{{ student.id }}"
+                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <i class="fas fa-ellipsis-v"></i>
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton{{ student.id }}">
+                     <a class="dropdown-item" href="#" onclick="updateStudent('{{ student.id }}')">Edit</a>
+                     <a class="dropdown-item text-danger" href="#"
+                        onclick="deleteStudent('{{ student.id }}')">Delete</a>
+                  </div>
+               </div>
+            </td>
+         </tr>
+         {% empty %}
+         <tr>
+            <td colspan="4" class="text-center">No students found.</td>
+         </tr>
+         {% endfor %}
+      </tbody>
+   </table>
+</div>
+
+<!-- Add Student Modal -->
+{% include "dashboard/_add_student_modal.html" %}
+
+
+<!-- Update Student Modal -->
+{% include "dashboard/_update_student_modal.html" %}
+
+</div>
+
+
+{% endblock %}
+{% block scripts %}
+<script src="{% static 'js/dashboard/student_list.js' %}"></script>
+<script src="{% static 'js/dashboard/alert.js' %}"></script>
+{% endblock %}

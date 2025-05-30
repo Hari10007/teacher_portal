@@ -1,0 +1,48 @@
+body {
+  background-color: #e6e6e6;
+  font-family: "Open Sans", sans-serif;
+}
+
+.login-wrapper {
+  min-height: 100vh;
+}
+
+.logo {
+  font-size: 2rem;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-group-text {
+  background-color: white;
+  border-right: 0;
+}
+
+.input-group .form-control {
+  border-left: 0;
+}
+
+.toggle-password {
+  cursor: pointer;
+}
+
+.custom-login-btn {
+  padding: 0.5rem 2rem;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.mt-5 {
+  margin-top: 6rem !important;
+}
+
+.dropdown-menu {
+  top: 100% !important;
+  left: 0 !important;
+  right: auto !important;
+  transform: translateY(0%) !important;
+}
