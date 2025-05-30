@@ -4,11 +4,11 @@
 
 1. **Clone the repository:**
 
-   ```bash
-   git clone https://github.com/Hari10007/teacher_portal.git
-   cd teacher-portal
+```bash
+git clone https://github.com/Hari10007/teacher_portal.git
+cd teacher-portal
 
-   ```
+```
 
 2. **Create a virtual environment:**
 
@@ -18,25 +18,27 @@
    venv\Scripts\activate  # On Windows
 ```
 
-### 3️ Install Dependencies
+3. **Install Python dependencies:**
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4️ Configure Database
+4. **Apply database migrations:**
 
 ```bash
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-### 5 Collect Static
+5. **Collect static files:**
+
 ```bash
 python manage.py collectstatic
 ```
 
-### 6 Run the Development Server
+6. **Start the development server:**
 
 ```bash
 python manage.py runserver
+```
