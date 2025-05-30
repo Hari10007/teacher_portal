@@ -31,13 +31,18 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-5. **Collect static files:**
+5. **Create a superuser account**
+```bash
+python manage.py createsuperuser
+```
+
+6. **Collect static files:**
 
 ```bash
 python manage.py collectstatic
 ```
 
-6. **Start the development server:**
+7. **Start the development server:**
 
 ```bash
 python manage.py runserver
