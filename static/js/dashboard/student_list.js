@@ -76,7 +76,7 @@ document
       .then((res) => res.json())
       .then((data) => {
         if (data.error) {
-         console.log(data.error);
+          console.log(data.error);
           showAlert(data.error, "danger");
         } else {
           location.reload();

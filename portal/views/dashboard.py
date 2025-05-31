@@ -1,11 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from portal.models import Student
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from rest_framework import status
-import json
 
 
 @method_decorator(login_required, name='dispatch')
@@ -27,7 +26,7 @@ class AddStudentView(APIView):
             defaults={'marks': marks}
         )
         if not created:
-            student.marks = marks
+            student.marks += marks
             student.save()
 
         return Response({'message': 'Student added/updated'})
@@ -35,7 +34,7 @@ class AddStudentView(APIView):
 @method_decorator(login_required, name='dispatch')
 class UpdateStudentView(APIView):
     def patch(self, request, id):
-        data = json.loads(request.body)
+        data = request.data
         name = data.get('name')
         subject = data.get('subject')
         marks = data.get('marks')
